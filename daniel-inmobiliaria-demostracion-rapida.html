@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Bienes Raíces | Santa Cruz de la Sierra, Bolivia</title>
+    <!-- Favicon con la imagen solicitada -->
+    <link rel="icon" type="image/png" href="logo-daniel.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans (Moderna y Urbana) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --green: #10B981;
+            --green-dark: #059669;
+            --green-light: #34D399;
+            --black: #0F172A;
+            --dark-card: #1E293B;
+            --gray-text: #64748B;
+            --light-bg: #F8FAFC;
+            --white: #FFFFFF;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--black);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            padding: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-cta {
+            background-color: var(--green);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 650px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            margin-top: 40px;
+        }
+
+        .hero-badge {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--green);
+            color: var(--green-light);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #CBD5E1;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* --- SEARCH FILTER WIDGET --- */
+        .search-widget {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) auto;
+            gap: 15px;
+            align-items: center;
+            max-width: 1050px;
+            margin: -60px auto 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-group {
+            text-align: left;
+        }
+
+        .search-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .search-group select, .search-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--black);
+            outline: none;
+            background: var(--light-bg);
+            transition: var(--transition);
+        }
+
+        .search-group select:focus, .search-group input:focus {
+            border-color: var(--green);
+            background: var(--white);
+        }
+
+        .btn-search {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-search:hover {
+            background-color: var(--green-dark);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .section-about {
+            padding: 100px 5%;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-text h2 span {
+            color: var(--green);
+        }
+
+        .about-text p {
+            color: var(--gray-text);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--green);
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            margin: 0;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-visual img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* --- PROPERTIES SECTION --- */
+        .properties-section {
+            padding: 100px 5%;
+            background: var(--light-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: var(--white);
+            border: 1px solid #E2E8F0;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--black);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        .properties-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid #E2E8F0;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+            border-color: var(--green);
+        }
+
+        .property-img-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .property-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .property-card:hover .property-img-container img {
+            transform: scale(1.05);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--black);
+            color: var(--green);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .property-price {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: 1px solid var(--green);
+        }
+
+        .property-content {
+            padding: 25px;
+        }
+
+        .property-location {
+            color: var(--gray-text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .property-location i {
+            color: var(--green);
+        }
+
+        .property-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+
+        .property-specs {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            margin-bottom: 20px;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .property-specs span i {
+            color: var(--green);
+            margin-right: 5px;
+        }
+
+        .btn-detail {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--light-bg);
+            color: var(--black);
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 1px solid #E2E8F0;
+        }
+
+        .btn-detail:hover {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 80px 5% 30px 5%;
+            border-top: 3px solid var(--green);
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--green);
+        }
+
+        .footer-col p, .footer-col a {
+            color: #94A3B8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: #64748B;
+            font-size: 0.85rem;
+        }
+
+        /* --- WHATSAPP FLOATING BUTTON --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media(max-width: 968px) {
+            .search-widget {
+                grid-template-columns: 1fr 1fr;
+            }
+            .about-container, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-container">
+                <img src="logo-daniel.png" alt="Daniel Bienes Raíces" class="logo-img">
+                <span style="color: white; font-weight: 800; font-size: 1.2rem;">DANIEL <span style="color: var(--green);">Bienes Raíces</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes somos</a></li>
+                <li><a href="#propiedades">Propiedades</a></li>
+                <li><a href="https://wa.me/59170000000?text=Hola%20Daniel,%20deseo%20más%20información%20sobre%20sus%20inmuebles." class="nav-cta" target="_blank">Contactar</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Exclusividad y Plusvalía en Santa Cruz</span>
+            <h1>Tu próximo hogar está más cerca de lo que crees</h1>
+            <p>Especialistas en la comercialización de bienes raíces de alto nivel urbano y residencial en las mejores zonas de Santa Cruz de la Sierra.</p>
+        </div>
+    </section>
+
+    <!-- SEARCH FILTER WIDGET -->
+    <div style="padding: 0 5%;">
+        <div class="search-widget">
+            <div class="search-group">
+                <label>Operación</label>
+                <select id="filter-operacion">
+                    <option value="todos">Todas</option>
+                    <option value="Venta">Venta</option>
+                    <option value="Alquiler">Alquiler</option>
+                    <option value="Anticrético">Anticrético</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <label>Tipo de Propiedad</label>
+                <select id="filter-tipo">
+                    <option value="todos">Todos</option>
+                    <option value="Casa">Casa</option>
+                    <option value="Departamento">Departamento</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <label>Ubicación / Zona</label>
+                <select id="filter-zona">
+                    <option value="todos">Todas las zonas</option>
+                    <option value="Equipetrol">Equipetrol</option>
+                    <option value="Urbari">Urbari</option>
+                    <option value="Norte">Zona Norte / Las Palmas</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <label>Presupuesto Máx.</label>
+                <select>
+                    <option>$us 150,000</option>
+                    <option>$us 250,000</option>
+                    <option>$us 400,000+</option>
+                </select>
+            </div>
+            <button class="btn-search" onclick="filtrarPropiedades()"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+        </div>
+    </div>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="section-about" id="quienes-somos">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Solidez Urbana y <span>Confianza Absoluta</span></h2>
+                <p>En Daniel Bienes Raíces combinamos el dinamismo del desarrollo urbano moderno con la calidez de encontrar el espacio ideal para tu familia o inversión en Santa Cruz de la Sierra.</p>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <h4>Trayectoria</h4>
+                        <p>Años de experiencia en el mercado inmobiliario cruceño.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Seguridad Legal</h4>
+                        <p>Respaldo jurídico verificado en cada transacción.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Santa Cruz Skyline Edificios">
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPIEDADES SECTION -->
+    <section class="properties-section" id="propiedades">
+        <div class="section-header">
+            <h2>Propiedades Destacadas</h2>
+            <p>Selección exclusiva de inmuebles listos para habitar o invertir.</p>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="setTab('todos', this)">Todos</button>
+            <button class="tab-btn" onclick="setTab('Venta', this)">Venta</button>
+            <button class="tab-btn" onclick="setTab('Alquiler', this)">Alquiler</button>
+            <button class="tab-btn" onclick="setTab('Anticrético', this)">Anticrético</button>
+        </div>
+
+        <div class="properties-grid" id="grid-propiedades">
+            <!-- Tarjeta 1 -->
+            <div class="property-card" data-operacion="Venta" data-tipo="Departamento" data-zona="Equipetrol">
+                <div class="property-img-container">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Departamento Equipetrol">
+                    <span class="property-badge">Venta</span>
+                    <div class="property-price">$us 145,000</div>
+                </div>
+                <div class="property-content">
+                    <div class="property-location"><i class="fa-solid fa-location-dot"></i> Equipetrol Norte, Santa Cruz</div>
+                    <h3 class="property-title">Exclusivo Departamento de Lujo</h3>
+                    <div class="property-specs">
+                        <span><i class="fa-solid fa-bed"></i> 2 Dorm.</span>
+                        <span><i class="fa-solid fa-bath"></i> 2 Baños</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 110 m²</span>
+                    </div>
+                    <a href="https://wa.me/59170000000?text=Hola%20Daniel,%20me%20interesa%20el%20Departamento%20en%20Equipetrol%20($us%20145,000)" target="_blank" class="btn-detail">Consultar por WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="property-card" data-operacion="Alquiler" data-tipo="Casa" data-zona="Norte">
+                <div class="property-img-container">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Casa Zona Norte">
+                    <span class="property-badge">Alquiler</span>
+                    <div class="property-price">$us 1,200 / mes</div>
+                </div>
+                <div class="property-content">
+                    <div class="property-location"><i class="fa-solid fa-location-dot"></i> Zona Norte, Condominio Cerrado</div>
+                    <h3 class="property-title">Moderna Residencia con Piscina</h3>
+                    <div class="property-specs">
+                        <span><i class="fa-solid fa-bed"></i> 4 Dorm.</span>
+                        <span><i class="fa-solid fa-bath"></i> 5 Baños</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 350 m²</span>
+                    </div>
+                    <a href="https://wa.me/59170000000?text=Hola%20Daniel,%20me%20interesa%20la%20Residencia%20en%20Zona%20Norte" target="_blank" class="btn-detail">Consultar por WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="property-card" data-operacion="Anticrético" data-tipo="Departamento" data-zona="Urbari">
+                <div class="property-img-container">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Departamento Urbari">
+                    <span class="property-badge">Anticrético</span>
+                    <div class="property-price">$us 65,000</div>
+                </div>
+                <div class="property-content">
+                    <div class="property-location"><i class="fa-solid fa-location-dot"></i> Barrio Urbari, Santa Cruz</div>
+                    <h3 class="property-title">Amplio Departamento Céntrico</h3>
+                    <div class="property-specs">
+                        <span><i class="fa-solid fa-bed"></i> 3 Dorm.</span>
+                        <span><i class="fa-solid fa-bath"></i> 2 Baños</span>
+                        <span><i class="fa-solid fa-ruler-combined"></i> 130 m²</span>
+                    </div>
+                    <a href="https://wa.me/59170000000?text=Hola%20Daniel,%20me%20interesa%20el%20Anticrético%20en%20Urbari" target="_blank" class="btn-detail">Consultar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo-container" style="margin-bottom: 15px;">
+                    <img src="logo-daniel.png" alt="Daniel Bienes Raíces" class="logo-img">
+                    <span style="color: white; font-weight: 800; font-size: 1.2rem;">DANIEL <span style="color: var(--green);">Bienes Raíces</span></span>
+                </div>
+                <p>Tu aliado estratégico inmobiliario en Santa Cruz de la Sierra, Bolivia. Compromiso, profesionalismo y visión de futuro.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <a href="#">Inicio</a>
+                <a href="#quienes-somos">Quiénes somos</a>
+                <a href="#propiedades">Propiedades</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fa-solid fa-location-dot" style="color: var(--green);"></i> Equipetrol Calle 4 Oeste, Santa Cruz</p>
+                <p><i class="fa-solid fa-phone" style="color: var(--green);"></i> +591 3 340XXXX</p>
+                <p><i class="fa-solid fa-envelope" style="color: var(--green);"></i> contacto@danielbienesraices.bo</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Daniel Bienes Raíces. Todos los derechos reservados. Desarrollado para alto impacto comercial.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/59170000000?text=Hola%20Daniel,%20deseo%20asesoramiento%20inmobiliario." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT DE FILTRADO INTERACTIVO -->
+    <script>
+        function filtrarPropiedades() {
+            const opSeleccionada = document.getElementById('filter-operacion').value;
+            const tipoSeleccionado = document.getElementById('filter-tipo').value;
+            const zonaSeleccionada = document.getElementById('filter-zona').value;
+
+            const tarjetas = document.querySelectorAll('.property-card');
+
+            tarjetas.forEach(card => {
+                const op = card.getAttribute('data-operacion');
+                const tipo = card.getAttribute('data-tipo');
+                const zona = card.getAttribute('data-zona');
+
+                let matchOp = (opSeleccionada === 'todos' || op === opSeleccionada);
+                let matchTipo = (tipoSeleccionado === 'todos' || tipo === tipoSeleccionado);
+                let matchZona = (zonaSeleccionada === 'todos' || zona === zonaSeleccionada);
+
+                if (matchOp && matchTipo && matchZona) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function setTab(operacion, btn) {
+            // Actualizar botones de pestañas
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Sincronizar con el select del buscador
+            document.getElementById('filter-operacion').value = operacion;
+            filtrarPropiedades();
+        }
+    </script>
+</body>
+</html>
